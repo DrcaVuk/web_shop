@@ -1,6 +1,10 @@
+.box {
+    display: flex;
+}
 .box .container {
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
+    margin-top: 50px;
 }
 
 .title {
@@ -9,4 +13,16 @@
     margin: auto;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
+}
+
+.stitle {
+    margin-top: 0px;
+}
+
+.imagebox {
+    margin: 50px auto auto 50px;
+}
+
+.button {
+    margin: 0 8px 0 auto;
 }

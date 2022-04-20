@@ -24,7 +24,9 @@ const PreFallCollections = (props) => {
             <Button>View Detalls</Button>
           </div>
           <div className="col-50">
-            <ImageBox image={Img02}></ImageBox>
+            <ImageBox className={classed.imagebox} image={Img02}>
+            <div className="box"></div>
+            </ImageBox>
           </div>
         </div>
       </div>

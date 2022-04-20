@@ -6,3 +6,7 @@
 .description {
     text-align: left;
 }
+
+.imagebox {
+    margin: auto 0 auto auto;
+}

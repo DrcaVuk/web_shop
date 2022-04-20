@@ -17,6 +17,7 @@ button {
     top: 8px;
     left: 8px;
     transition: ease-out 0.3s;
+    cursor: pointer;
 }
 
 button:hover {

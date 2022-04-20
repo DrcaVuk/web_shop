@@ -8,8 +8,8 @@ const WeThoughtOfYou = (props) => {
   return (
     <div className={`container-fluid ${classed.box}`}>
       <div className="container">
-        <Title>We Thought of you</Title>
-        <Description>
+        <Title className={classed.title}>We Thought of you</Title>
+        <Description className={classed.description}>
           Capitalize on low hanging fruit to identify a ballpark value added
           activity to beta test. Override the digital divide with additional
           clickthroughs from DevOps. Nanotechnology immersion along the
