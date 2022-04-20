@@ -4,13 +4,17 @@ import { AiFillInstagram, AiFillGooglePlusSquare, AiFillFacebook, AiFillLinkedin
 
 import Logo from "../../../images/Logo.png";
 
+import './Footer.css';
+
 const Footer = (props) => {
   return (
     <footer>
-      <div className="container">
+      <div className="container box">
         <div className="row">
           <div className="col-16">
-            <img src={Logo} alt="Logo image" />
+            <Link to="/">
+              <img src={Logo} alt="Logo image" />
+            </Link>
           </div>
           <div className="col-16">
             <Link to="#">Home</Link>
@@ -28,17 +32,29 @@ const Footer = (props) => {
           <div className="col-50">
               <p>Sign up for news and events</p>
               <div className="newsletter">
-                  <input type="text" />
+                  <input type="text" placeholder="Your email address"/>
                   <button type="button">Submit</button>
               </div>
               <div className="social">
-                  <AiFillFacebook />
+                <a href="#" target="_blank">
+                <AiFillFacebook />
+                </a>
+                  <a href="#" target="_blank">
                   <AiFillInstagram />
+                  </a>
+                  <a href="#" target="_blank">
                   <AiFillGooglePlusSquare />
-                  <AiFillLinkedin />
+                  </a>
+                <a href="#" target="_blank">
+                <AiFillLinkedin />
+                </a>
               </div>
           </div>
         </div>
+      </div>
+      <div className="container copyrights">
+        <p> Copyrights 2017. Shoe Shop by <a href="www.myworlds.win/">MyWorlds.win</a></p>
+        <Link to="#">Contac Us</Link>
       </div>
     </footer>
   );

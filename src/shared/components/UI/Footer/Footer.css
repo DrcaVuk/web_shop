@@ -1,0 +1,91 @@
+footer .box {
+    display: flex;
+    align-items:flex-start ;
+    border-top: 2px solid var(--background-color);
+    border-bottom: 2px solid var(--background-color);
+}
+
+footer .box img {
+    max-width: 150px;
+}
+
+footer .box a {
+    color: var(--font-color);
+    text-decoration: none;
+    padding: 5px 0;
+    cursor:pointer;
+}
+
+footer .box .newsletter {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 30px;
+}
+
+footer .box .newsletter input {
+    width: 100%;
+    min-width: 300px;
+    height: 40px;
+    padding: 2px 10px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--font-color);
+    border: solid 2px var(--background-color);
+}
+
+footer .box .newsletter input:focus,
+footer .box .newsletter input:focus-visible {
+    border: solid 2px var(--primary-color);
+}
+
+footer .box .newsletter input::placeholder {
+    color: var(--primary-color);
+}
+
+footer .box .newsletter button {
+    width: 150px;
+    max-width: 150px;
+    height: 40px;
+    border: none;
+}
+
+footer .box .social {
+    margin-top: 30px;
+}
+
+footer .box .social a {
+    color: var(--font-color);
+    margin: 0px 30px 0px 0px;
+    transition: ease-out 0.3s;
+}
+
+footer .box .social a:hover {
+    color: var(--secondary-color);
+}
+
+footer .box .social svg {
+    width: 50px;
+    height: auto;
+}
+
+footer .copyrights {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 0px;
+}
+
+
+footer .copyrights p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--font-color);
+}
+
+
+footer .copyrights a {
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--font-color);
+}
