@@ -1,0 +1,36 @@
+.box {
+    display: flex;
+    background-color: var(--background-color);
+}
+
+.box div {
+    display: flex;
+    flex-direction: column;
+}
+
+.box h2 {
+    text-align: center;
+}
+
+
+.box p {
+    text-align: center;
+    margin: auto;
+    max-width: 700px;
+
+}
+
+.sweety {
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+.box a {
+    text-align: center;
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 10px 0px;
+}

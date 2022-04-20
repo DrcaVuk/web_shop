@@ -1,0 +1,12 @@
+.description {
+    display: block;
+    width: 100%;
+    max-width: 600px;
+    color: var(--font-color);
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 20px 0px 25px 0;
+    text-justify: inter-cluster;
+    word-spacing: 5px;
+    line-height: 1.5rem;
+}

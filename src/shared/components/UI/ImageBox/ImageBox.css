@@ -1,0 +1,30 @@
+.image-box {
+    display: block;
+    width: 100%;
+    margin-bottom: 80px;
+}
+
+
+.image-box img {
+    display: block;
+    border-radius: 0;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 4px;
+    width: 100%;
+    max-width: 400px;
+    margin: auto 0 auto auto;
+    position: relative;
+    z-index: 11;
+}
+
+.image-box .box {
+    display: block;
+    width: 50%;
+    height: 90%;
+    background: linear-gradient(#cff9ec, #90e9cf);
+    position: relative;
+    z-index: 10;
+    bottom: 300px;
+    right: -400px;
+} 

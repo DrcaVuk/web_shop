@@ -1,0 +1,12 @@
+.box .container {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.title {
+    display: block;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}

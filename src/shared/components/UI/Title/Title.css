@@ -1,0 +1,7 @@
+.title {
+    display: block;
+    width: 100%;
+    color: var(--font-color);
+    font-size: 2rem;
+    font-weight: 500;
+}
