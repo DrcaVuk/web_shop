@@ -17,7 +17,7 @@ const WeThoughtOfYou = (props) => {
           bottom line.
         </Description>
         <p className={classed.sweety}>Nandy Sweety</p>
-        <a>Ui Designer</a>
+        <a href="/">Ui Designer</a>
       </div>
     </div>
   );

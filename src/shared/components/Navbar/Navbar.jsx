@@ -1,16 +1,22 @@
 import React, {useState} from "react";
 import { NavLink } from "react-router-dom";
-import {AiOutlineMenu } from "react-icons/ai";
+import {AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
 
 import Logo from "../UI/Logo/Logo";
 
 import "./Navbar.css"
 
 const Navbar = (props) => {
-  const [isActive, setIsActive ] = useState(false)
+  const [ active , setActive ] = useState(false);
+
+  const buttonHandler = () => {
+    setActive(!active);
+    console.log("Proslo", active)
+  }
+
   return <nav>
     <Logo />
-    <div className="menu">
+    <div className={active ?"menu active":"menu" } onClick={buttonHandler}>
       <NavLink to="/">Home</NavLink>
       <NavLink to="/man">Man</NavLink>
       <NavLink to="/woman">Woman</NavLink>
@@ -18,9 +24,9 @@ const Navbar = (props) => {
       <NavLink to="/blog">Blog</NavLink>
       <NavLink to="/contact">Contact Us</NavLink>
     </div>
-    {isActive && <div className="icons">
-      <button className="icon"><AiOutlineMenu/></button>
-    </div>}
+    <div className="icons">
+      <button className="icon" onClick={buttonHandler}>{active ? <AiOutlineClose />:<AiOutlineMenu/>}</button>
+    </div>
   </nav>;
 };
 

@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { AiFillInstagram, AiFillGooglePlusSquare, AiFillFacebook, AiFillLinkedin} from "react-icons/ai";
+import {TiSocialGooglePlus, TiSocialInstagram, TiSocialFacebook} from "react-icons/ti";
+import { ImLinkedin2} from "react-icons/im"
 
 import Logo from "../UI/Logo/Logo";
 
@@ -35,16 +36,16 @@ const Footer = (props) => {
               </div>
               <div className="social">
                 <a href="https://facebook.com" target="_blank" rel="noreferrer">
-                <AiFillFacebook />
+                <TiSocialFacebook />
                 </a>
                   <a href="https://instagram.com" target="_blank" rel="noreferrer">
-                  <AiFillInstagram />
+                  <TiSocialInstagram />
                   </a>
                   <a href="https://google.com" target="_blank" rel="noreferrer">
-                  <AiFillGooglePlusSquare />
+                  <TiSocialGooglePlus />
                   </a>
                 <a href="https://www.NavLinkedin.com/feed/" target="_blank" rel="noreferrer">
-                <AiFillLinkedin />
+                <ImLinkedin2 />
                 </a>
               </div>
           </div>
