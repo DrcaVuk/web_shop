@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AiFillInstagram, AiFillGooglePlusSquare, AiFillFacebook, AiFillLinkedin} from "react-icons/ai";
 
-import Logo from "../../../images/Logo.png";
+import Logo from "../UI/Logo/Logo";
 
 import './Footer.css';
 
@@ -12,22 +12,20 @@ const Footer = (props) => {
       <div className="container box">
         <div className="row">
           <div className="col-16">
-            <Link to="/">
-              <img src={Logo} alt="Logo image" />
-            </Link>
+            <Logo />
           </div>
           <div className="col-16">
-            <Link to="#">Home</Link>
-            <Link to="#">Man</Link>
-            <Link to="#">Woman</Link>
-            <Link to="#">Popular</Link>
-            <Link to="#">About</Link>
-            <Link to="#">Blog</Link>
+            <NavLink to="/">Home</NavLink>
+            <NavLink to="/man">Man</NavLink>
+            <NavLink to="/woman">Woman</NavLink>
+            <NavLink to="/popular">Popular</NavLink>
+            <NavLink to="/about">About</NavLink>
+            <NavLink to="/blog">Blog</NavLink>
           </div>
           <div className="col-16">
-            <Link to="#">Suport</Link>
-            <Link to="#">Advertisement</Link>
-            <Link to="#">Online Shop</Link>
+            <NavLink to="/suport">Suport</NavLink>
+            <NavLink to="/advertisement">Advertisement</NavLink>
+            <NavLink to="/shop">Online Shop</NavLink>
           </div>
           <div className="col-50">
               <p>Sign up for news and events</p>
@@ -36,16 +34,16 @@ const Footer = (props) => {
                   <button type="button">Submit</button>
               </div>
               <div className="social">
-                <a href="#" target="_blank">
+                <a href="https://facebook.com" target="_blank" rel="noreferrer">
                 <AiFillFacebook />
                 </a>
-                  <a href="#" target="_blank">
+                  <a href="https://instagram.com" target="_blank" rel="noreferrer">
                   <AiFillInstagram />
                   </a>
-                  <a href="#" target="_blank">
+                  <a href="https://google.com" target="_blank" rel="noreferrer">
                   <AiFillGooglePlusSquare />
                   </a>
-                <a href="#" target="_blank">
+                <a href="https://www.NavLinkedin.com/feed/" target="_blank" rel="noreferrer">
                 <AiFillLinkedin />
                 </a>
               </div>
@@ -54,7 +52,7 @@ const Footer = (props) => {
       </div>
       <div className="container copyrights">
         <p> Copyrights 2017. Shoe Shop by <a href="www.myworlds.win/">MyWorlds.win</a></p>
-        <Link to="#">Contac Us</Link>
+        <NavLink to="/contact">Contac Us</NavLink>
       </div>
     </footer>
   );

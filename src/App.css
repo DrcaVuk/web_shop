@@ -27,8 +27,7 @@
   width: 100%;
   max-width: 1260px;
   padding: 100px 0;
-  display: flex;
-  align-self: center;
+  display: block;
   margin: auto;
 }
 

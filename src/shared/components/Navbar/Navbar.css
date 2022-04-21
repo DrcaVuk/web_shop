@@ -1,0 +1,49 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.menu {
+    display: flex;
+    margin: auto 0 auto;
+}
+
+.menu a {
+    color: var(--font-color);
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0px 5px;
+    margin: 0px 5px;
+}
+
+.menu a:hover, .menu .active {
+    color: #000;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0px;
+    margin-left: auto;
+    transition: ease-out 0.3s;
+}
+
+.icons button {
+    display: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    color: #fff;
+    background-color: var(--font-color);
+    border: none;
+}
+
+.icons button:hover {
+    color: var(--secondary-color);
+    background-color: #fff;
+}

@@ -3,16 +3,14 @@ footer .box {
     align-items:flex-start ;
     border-top: 2px solid var(--background-color);
     border-bottom: 2px solid var(--background-color);
-}
-
-footer .box img {
-    max-width: 150px;
+    cursor: default;
 }
 
 footer .box a {
     color: var(--font-color);
     text-decoration: none;
     padding: 5px 0;
+    transition: ease-out 0.3ms;
     cursor:pointer;
 }
 
@@ -80,6 +78,7 @@ footer .copyrights p {
     font-size: 1rem;
     font-weight: 400;
     color: var(--font-color);
+    cursor: default;
 }
 
 
@@ -88,4 +87,12 @@ footer .copyrights a {
     font-size: 1rem;
     font-weight: 400;
     color: var(--font-color);
+}
+
+footer .box a:hover, footer .box .active {
+    color: var(--button-hover);
+}
+
+footer button {
+    top: 0px;
 }
