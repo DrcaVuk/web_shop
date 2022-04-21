@@ -12,7 +12,7 @@ const LatestBlog = (props) => {
   return (
     <div className={`container-fluid ${classed.box}`}>
       <div className="container">
-        {/* <Title className={classed.title}>Latest Blog</Title> */}
+        <Title className={classed.title}>Latest Blog</Title>
         <div className="row">
           <div className="col-50">
             <ImageBox className={classed.imagebox} image={Img03}>

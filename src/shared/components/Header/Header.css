@@ -2,7 +2,7 @@ header {
     display: flex;
     width: 100%;
     min-height: 60vh;
-    background: linear-gradient(70deg, var(--primary-color) 60%, #82f4d3 60%);
+    background: linear-gradient(70deg, var(--primary-color) 50%, #82f4d3 50%);
     position: relative;
 }
 
@@ -56,4 +56,8 @@ header .text-box {
     position: relative;
     left: -50px;
     bottom: 250px;
+}
+
+header .content img {
+    max-width: 700px;
 }
