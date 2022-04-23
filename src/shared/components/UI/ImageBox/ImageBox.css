@@ -52,3 +52,9 @@
     bottom: 75px;
     right: -105px;
 }
+
+@media screen and (max-width: 576px) {
+    .image-box .box {
+        display: none;
+    }
+}

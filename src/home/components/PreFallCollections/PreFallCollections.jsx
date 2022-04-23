@@ -11,7 +11,7 @@ const PreFallCollections = (props) => {
   return (
     <div className="container-fluid">
       <div className="container">
-        <div className="row">
+        <div className={`row ${classed.row}`}>
           <div className="col-50">
             <Title className={classed.title}>Pre-Fall Collections</Title>
             <Description className={classed.description}>

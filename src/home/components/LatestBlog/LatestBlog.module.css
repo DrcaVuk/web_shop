@@ -26,3 +26,14 @@
 .button {
     margin: 0 8px 0 auto;
 }
+
+.text {
+    color: red;
+    background-color: blue;
+}
+
+.text h3 {
+    color: red;
+    font-size: 50px;
+    opacity: 1;
+}

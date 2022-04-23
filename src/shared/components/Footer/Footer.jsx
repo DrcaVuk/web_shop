@@ -24,7 +24,7 @@ const Footer = (props) => {
             <NavLink to="/blog">Blog</NavLink>
           </div>
           <div className="col-16">
-            <NavLink to="/suport">Suport</NavLink>
+            <NavLink to="/suport">Support</NavLink>
             <NavLink to="/advertisement">Advertisement</NavLink>
             <NavLink to="/shop">Online Shop</NavLink>
           </div>
@@ -52,7 +52,7 @@ const Footer = (props) => {
         </div>
       </div>
       <div className="container copyrights">
-        <p> Copyrights 2017. Shoe Shop by <a href="www.myworlds.win/">MyWorlds.win</a></p>
+        <p>Shoe Shop by <a href="www.myworlds.win/">MyWorlds.win</a></p>
         <NavLink to="/contact">Contac Us</NavLink>
       </div>
     </footer>

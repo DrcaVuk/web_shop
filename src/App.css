@@ -53,3 +53,26 @@
   width: 16.66%;
   height: 100%;
 }
+
+
+@media screen and (max-width: 576px) {
+  .container {
+    padding: 2rem 0px;
+  }
+
+  .row {
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .col-16 {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .col-50 {
+    width: 100%;
+    padding: 0 1rem;
+  }
+}

@@ -68,6 +68,7 @@ header .content img {
     header {
         min-width: 30vh;
         padding: 0 1rem;
+        background: linear-gradient(70deg, var(--primary-color) 65%, #82f4d3 65%);
     }
 
     header .content h1 {
@@ -84,7 +85,11 @@ header .content img {
         width: 200px;
     }
 
+    header .content .brand {
+        max-width: 140px;
+    }
+
     header .content .brand p {
-        font-size: 0.8rem;
+        font-size: 0.7rem;
     }
 }

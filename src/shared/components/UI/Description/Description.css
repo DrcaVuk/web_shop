@@ -11,3 +11,11 @@
     line-height: 1.5rem;
     cursor: default;
 }
+
+
+@media screen and (max-width:576px) {
+    .description {
+        text-align: left;
+        padding: 20px auto 25px;
+    }
+}
