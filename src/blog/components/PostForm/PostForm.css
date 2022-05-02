@@ -1,0 +1,142 @@
+form {
+    width: 100%;
+    height: auto;
+    margin: 10px auto;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-control label {
+    color: var(--font-color);
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin: 5px 0;
+}
+
+.form-control input {
+    width: 500px;
+    height: 40px;
+    padding: 7px;
+    color: var(--font-color);
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.form-control textarea {
+    height: auto;
+    color: var(--font-color);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 7px;
+}
+
+.form-control p {
+    color: red;
+    font-size: 1rem;
+    font-weight: 500;
+
+}
+
+form .box-image {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    flex-direction: row;
+    margin: auto;
+    width: 100%;
+    min-height: 200px;
+    min-width: 240px;
+    overflow: auto;
+}
+
+form .box-image img {
+    display: block;
+    max-width: 200px;
+    max-height: 200px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    margin: 5px;
+}
+
+form .btn-file {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ddd;
+    height: 50px;
+}
+
+form .btn-file svg {
+    min-width: 100px;
+    color: var(--secondary-color);
+}
+
+#image {
+    display: none;
+}
+
+form ::-webkit-scrollbar {
+    width: 20px;
+    height: 15px;
+}
+
+/* Track */
+form ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 3px rgba(128, 128, 128, 0.5);
+    border-radius: 0px;
+}
+
+/* Handle */
+form ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 0px;
+}
+
+
+/* Handle on hover */
+form ::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+
+@media screen and (min-width: 577px) {
+    .form-control textarea {
+        max-width: 500px;
+        min-width: 500px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    form {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .form-control input {
+        width: 100%;
+    }
+
+    .form-control textarea {
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        min-height: 100px;
+    }
+
+    form .box-image {
+        flex-direction: column;
+        max-width: 100%;
+        margin: 30px 0;
+        height: auto;
+        max-height: none;
+    }
+
+    form .box-image img {
+        max-width: 100%;
+        max-height: 100%;
+    }
+}

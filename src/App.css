@@ -34,6 +34,8 @@
 .row {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: left;
   width: 100%;
 }
 
@@ -48,12 +50,10 @@
 
 .col-16 {
   display: flex;
-  justify-content: center;
   flex-direction: column;
   width: 16.66%;
   height: 100%;
 }
-
 
 @media screen and (max-width: 576px) {
   .container {

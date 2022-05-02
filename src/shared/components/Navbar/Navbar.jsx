@@ -11,15 +11,14 @@ const Navbar = (props) => {
 
   const buttonHandler = () => {
     setActive(!active);
-    console.log("Proslo", active)
   }
 
   return <nav>
     <Logo />
     <div className={active ?"menu active":"menu" } onClick={buttonHandler}>
       <NavLink to="/">Home</NavLink>
-      <NavLink to="/man">Man</NavLink>
-      <NavLink to="/woman">Woman</NavLink>
+      <NavLink to="/shop/man">Man</NavLink>
+      <NavLink to="/shop/woman">Woman</NavLink>
       <NavLink to="/about">About </NavLink>
       <NavLink to="/blog">Blog</NavLink>
       <NavLink to="/contact">Contact Us</NavLink>

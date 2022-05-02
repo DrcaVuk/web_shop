@@ -1,5 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+
+import { useHttpClient } from "../../hooks/http-hook";
+
 import {TiSocialGooglePlus, TiSocialInstagram, TiSocialFacebook} from "react-icons/ti";
 import { ImLinkedin2} from "react-icons/im"
 
@@ -8,6 +13,19 @@ import Logo from "../UI/Logo/Logo";
 import './Footer.css';
 
 const Footer = (props) => {
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
+  const formik = useFormik({
+    initialValues: {
+      email: ""
+    },
+    validationSchema: Yup.object({
+      email: Yup.string().required("Enter your email")
+    }),
+    onSubmit: (value) => {
+      sendRequest("/newsletter", "POST", value);
+      formik.resetForm();
+    }
+  })
   return (
     <footer>
       <div className="container box">
@@ -17,9 +35,9 @@ const Footer = (props) => {
           </div>
           <div className="col-16">
             <NavLink to="/">Home</NavLink>
-            <NavLink to="/man">Man</NavLink>
-            <NavLink to="/woman">Woman</NavLink>
-            <NavLink to="/popular">Popular</NavLink>
+            <NavLink to="/shop/man">Man</NavLink>
+            <NavLink to="/shop/woman">Woman</NavLink>
+            <NavLink to="/shop/popular">Popular</NavLink>
             <NavLink to="/about">About</NavLink>
             <NavLink to="/blog">Blog</NavLink>
           </div>
@@ -31,8 +49,10 @@ const Footer = (props) => {
           <div className="col-50">
               <p>Sign up for news and events</p>
               <div className="newsletter">
-                  <input type="text" placeholder="Your email address"/>
-                  <button type="button">Submit</button>
+                <form onSubmit={formik.onSubmit} >
+                  <input type="text" name="email" onChange={formik.handleChange} value={formik.values.email} placeholder="Your email address"/>
+                  <button type="button" onClick={formik.handleSubmit}>Submit</button>
+                  </form>
               </div>
               <div className="social">
                 <a href="https://facebook.com" target="_blank" rel="noreferrer">

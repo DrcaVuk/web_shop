@@ -1,6 +1,7 @@
 .item {
     width: 22%;
     height: auto;
+    margin: 1.5%;
 }
 
 .item a {
@@ -36,6 +37,9 @@
 
 .item a img {
     width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-width: 100%;
 }
 
 .item a div h5 {

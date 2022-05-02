@@ -1,22 +1,22 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { URL } from "../../../constants";
 
-import img from "../../images/bg.png";
 import "./ProductItem.css";
 
-const ProductItem = (props) => {
+const ProductItem = props => {
   return (
-    <div className="item">
+    <div className="item" key={props.key}>
       <Link to={`/product/${props.id}`}>
-        <img src={img} alt={props.alt} />
+        {props.image && <img src={`${URL}/${props.image}`} alt={props.alt} />}
         <div>
           <h5>View Details</h5>
         </div>
       </Link>
       <div className="price">
-        <h4>Nike Shoes</h4>
+        <h4>{props.name}</h4>
         <p>Shop Outdoors</p>
-        <p>$125</p>
+        <p>$ {props.price}</p>
       </div>
     </div>
   );
