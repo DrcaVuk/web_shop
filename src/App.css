@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+@import "./shared/style/form.css";
+@import "./shared/style/modal.css";
 
 :root {
   --primary-color: #e9e9e9;
@@ -30,6 +32,7 @@
   display: block;
   margin: auto;
 }
+
 
 .row {
   display: flex;

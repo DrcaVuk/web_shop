@@ -1,0 +1,43 @@
+.message-box {
+    display: flex;
+    width: 100%;
+    max-width: 400px;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin: auto;
+    padding: 4px 0;
+}
+
+.message-box .message {
+    display: inline-flex;
+    flex-direction: column;
+    justify-self: right;
+    color: #fff;
+    background-color: rgb(67, 167, 254);
+    border-radius: 20px;
+    max-width: 300px;
+    padding: 7px 14px;
+    margin: auto 0 auto auto;
+}
+
+.message-box .message-client {
+    display: inline-flex;
+    flex-direction: column;
+    justify-self: left;
+    color: #fff;
+    background-color: rgb(155, 57, 57);
+    border-radius: 20px;
+    max-width: 300px;
+    padding: 7px 14px;
+    margin: auto auto auto 0;
+}
+
+.message-box div .mess {
+    padding: 5px 0;
+}
+
+.message-box div .time {
+    text-align: right;
+    font-size: 1rem;
+}
+

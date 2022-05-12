@@ -1,0 +1,14 @@
+.msg_box {
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    width: 100%;
+    max-width: 500px;
+    height: 40vh;
+    margin: auto;
+    border: 1px solid var(--primary-color);
+}
+
+.msg_title {
+    text-align: center;
+}

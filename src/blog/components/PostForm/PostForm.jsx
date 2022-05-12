@@ -5,8 +5,6 @@ import { FaCloudUploadAlt } from "react-icons/fa";
 
 import Button from "../../../shared/components/UI/Button/Button";
 
-import "./PostForm.css";
-
 const PostForm = (props) => {
   const [previewUrl, setPreviewUrl] = useState();
   const [viewImage, setViewImage] = useState("");
@@ -77,7 +75,7 @@ const PostForm = (props) => {
           </div>
           <div className="form-control">
             <label className="btn-file">
-              <input
+              <input className="input-error"
                 type="file"
                 id="image"
                 name="image"

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { AuthContext } from "../../shared/context/auth-context";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import { Link } from "react-router-dom";
 
@@ -8,6 +9,7 @@ import LoadingSpinner from "../../shared/components/UI/LoadingSpinner/LoadingSpi
 import classed from "./Blog.module.css";
 
 const Blog = () => {
+  const auth = useContext(AuthContext);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
   const [blog, setBlog] = useState([]);
@@ -36,7 +38,7 @@ const Blog = () => {
         <div className={classed.container}>
           <div className="row">
             <div className="col-50"><h1>BLOG</h1></div>
-            <div className="colo-50"><Link to="/blog/new" className="newpost" >New</Link></div>
+            {auth.isLoggedIn && auth.role == 1 && <div className="colo-50"><Link to="/blog/new" className="newpost" >New</Link></div>}
           </div>
         </div>
         {isLoading && <LoadingSpinner error={error} onClear={clearError}/>}

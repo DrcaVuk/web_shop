@@ -37,3 +37,30 @@
     font-size: 50px;
     opacity: 1;
 }
+
+.col {
+    padding-left: 70px;
+    padding: 0 70px;
+    margin:auto;
+}
+
+.col p {
+    max-height: 160px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.each_slide > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    height: 350px;
+  }
+  
+  .each_slide span {
+    padding: 20px;
+    font-size: 20px;
+    background: #efefef;
+    text-align: center;
+  }

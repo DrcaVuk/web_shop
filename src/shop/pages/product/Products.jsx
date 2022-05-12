@@ -3,13 +3,11 @@ import { useParams } from "react-router-dom";
 import { useHttpClient } from "../../../shared/hooks/http-hook";
 
 import ProductItem from "../../../shared/components/ProductItem/ProductItem";
-import Description from "../../../shared/components/UI/Description/Description";
-import Title from "../../../shared/components/UI/Title/Title";
 import LoadingSpinner from "../../../shared/components/UI/LoadingSpinner/LoadingSpinner";
 
-const Product = props => {
+const Product = () => {
     const [ items, setItem ] = useState([]);
-    const [ page, setPgae ] = useState(1);
+    const [ page, setPage ] = useState(1);
     const [ limit, setLimit ] = useState(10);
     const { isLoading, error, sendRequest, clearError } = useHttpClient();
     let { item } = useParams();
@@ -30,7 +28,7 @@ const Product = props => {
         <div className="container-fluid">
             <div className="container">
                 {isLoading && <LoadingSpinner />}
-                {!isLoading && 
+                {!isLoading && items.length > 0 && 
                 <div className="row">
                    {items.map((item, index) => (
                        <ProductItem key={index} id={item._id} name={item.name} price={item.price} image={item.image}/>
