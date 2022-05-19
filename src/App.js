@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "./shared/context/auth-context";
 import { useAuth } from "./shared/hooks/auth-hook";
-import { useStore } from "./shared/hooks/store-hook";
 
 import { URL } from "./constants";
 
@@ -16,9 +15,12 @@ import UpdatePost from "./blog/page/UpdatePost";
 import Post from "./blog/page/Post";
 import About from "./about/page/About";
 import Suport from "./support/page/Suport";
+import ContactUs from "./contact-us/page/ContactUs";
+
 import Products from "./shop/pages/product/Products";
 import Product from "./shop/pages/product/Product";
-import ContactUs from "./contact-us/page/ContactUs";
+import NewProduct from "./shop/pages/NewProduct";
+import UpdateProduct from "./shop/pages/UpdateProduct";
 
 import Login from "./user/pages/Login";
 import JoinUs from "./user/pages/JoinUs";
@@ -27,7 +29,8 @@ import User from "./user/pages/User";
 
 import Message from "./user/pages/Message";
 import Messages from "./user/pages/Messages";
-
+import NewslatterList from "./user/pages/NewslatterList";
+import Newslatter from "./user/pages/Newslatter";
 import Bag from "./shop/pages/Bag";
 
 import "./App.css";
@@ -86,10 +89,12 @@ function App() {
 
           <Route path="/about" element={<About />} />
           <Route path="/suport" element={<Suport />} />
-
-          <Route path="/shop/:item_id" element={<Products />} />
-          <Route path="/product/:item_id" element={<Product />} />
           <Route path="/contact" element={<ContactUs />} />
+
+          <Route path="/product/update/:item_id" element={<UpdateProduct />} />
+          <Route path="/product/new" element={<NewProduct />} />
+          <Route path="/shop/:category" element={<Products />} />
+          <Route path="/product/:item_id" element={<Product />} />
 
           <Route path="/login" element={<Login />} />
           <Route path="/join-us" element={<JoinUs />} />
@@ -101,6 +106,9 @@ function App() {
           <Route path="/messages" element={<Messages />} />
           <Route path="/message/:message_id" element={<Message />} />
           <Route path="/bag" element={<Bag />} />
+
+          <Route path="/newslatter/list" element={<NewslatterList/>} />
+          <Route path="/newslatter" element={<Newslatter/>} />
         </Routes>
         <Footer />
       </BrowserRouter>

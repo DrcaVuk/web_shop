@@ -12,15 +12,14 @@ const PostItem = (props) => {
   return (
     <div key={props.id} className={`post ${classed.post}`}>
       <div className={classed.image}>
-        {props.image && <img src={`${URL}/${props.image}`} />}
+        {props.image && <img src={`${URL}/${props.image}`} alt={props.names}/>}
         {!props.image && <img src={noImg} />}
       </div>
       <h2>{props.title}</h2>
       <p>{props.description}</p>
       <div>
-        {console.log("ROLE: " + auth.role)}
-        {auth.role == 1 && <Button onClick={() => {props.handlerDelete(props.id)}} className={classed.box}>Delete</Button>}
-        {auth.role == 1 && <Link to={`/blog/edit/${props.id}`}>Edit</Link>}
+        {auth.role === 1 && <Button onClick={() => {props.handlerDelete(props.id)}} className={classed.box}>Delete</Button>}
+        {auth.role === 1 && <Link to={`/blog/edit/${props.id}`}>Edit</Link>}
         <Link to={`/blog/${props.id}`}>Read More</Link>
       </div>
     </div>

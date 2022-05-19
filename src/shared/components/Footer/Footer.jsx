@@ -22,7 +22,7 @@ const Footer = (props) => {
       email: Yup.string().required("Enter your email")
     }),
     onSubmit: (value) => {
-      sendRequest("/newsletter", "POST", value);
+      sendRequest("/newslatter", "POST", value);
       formik.resetForm();
     }
   })

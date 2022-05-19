@@ -29,6 +29,7 @@ export const useAuth = () => {
       "userData",
       JSON.stringify({
         userId: uid,
+        role: role,
         token: token,
         expiration: tokenExpirationDate.toISOString(),
       })
@@ -55,7 +56,6 @@ export const useAuth = () => {
           dataBag = await sendRequest("/bag", "GET");
           setBagId(dataBag.data.existingBag._id);
           setBag(dataBag.data.items);
-          console.log(dataBag.data.items);
           localStorage.setItem(
             "bagData",
             JSON.stringify({
@@ -67,27 +67,23 @@ export const useAuth = () => {
         }
       }
     }
-  }, []);
+  }, [bagId, sendRequest]);
 
   const getItems = useCallback(async (r) => {
-    console.log(r)
     if (bagId === null) {
-      getBagId();
-      console.log(r + bagId)
+      await getBagId();
     }
 
     if (isLoggedIn) {
       let dataBag;
-      console.log(r + "2")
       try {
         dataBag = await sendRequest("/bag", "GET");
         setBag(dataBag.data.items);
-        console.log("N:", dataBag.data.items)
       } catch (err) {
         console.log(err);
       }
     }
-  }, []);
+  }, [bagId, getBagId, isLoggedIn, sendRequest]);
  
   useEffect(() => {
     if (token && tokenExpirationDate) {
@@ -109,20 +105,20 @@ export const useAuth = () => {
       login(
         storedData.userId,
         storedData.token,
+        storedData.role,
         new Date(storedData.expiration)
       );
     }
   }, [login]);
 
   const deleteItem = useCallback(async (item_id) => {
-    let dataResiver;
     try{
-      dataResiver = await sendRequest(`/bag/${item_id}`, "DELETE")
+      await sendRequest(`/bag/${item_id}`, "DELETE")
     } catch(err) {
       console.log(err);
     }
     getItems("Delete Item");
-  }, []);
+  }, [getItems, sendRequest]);
 
   const addItem = useCallback(async (item_id, name, price) => {
     try {
@@ -137,7 +133,7 @@ export const useAuth = () => {
       console.log(err);
     }
     getItems("add Item");
-  });
+  }, [bagId, getItems, sendRequest]);
 
   const updateItem = useCallback(async (item_id, quantity) => {
     try {
@@ -146,7 +142,7 @@ export const useAuth = () => {
     } catch(err){ 
       console.log(err);
     }
-  },[])
+  },[getItems, sendRequest])
 
   useEffect(()=> {
     if(isLoggedIn) {
@@ -157,13 +153,13 @@ export const useAuth = () => {
       setBagId(null);
       localStorage.removeItem("bagData");
     }
-  },[isLoggedIn])
+  },[isLoggedIn, getBagId])
 
   useEffect(() => {
     setInBag(bag.length)
     let total = 0;
     bag.map(item => {
-      total += item.price * item.quantity;
+      return total += item.price * item.quantity;
     })
     setSubtotal(total);
     setTotal(total);

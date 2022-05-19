@@ -1,6 +1,5 @@
 form {
     width: 100%;
-    max-width: 500px;
     height: auto;
     margin: 10px auto;
 }
@@ -13,7 +12,7 @@ form {
     flex-direction: column;
     position: relative;
     color: var(--font-color);
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 500;
 }
 
@@ -21,10 +20,11 @@ form {
     margin-bottom: 0.5rem;
 }
 
-.form-control input {
+.form-control input, .form-control select {
     width: 100%;
     height: 40px;
     padding: 5px 10px;
+    font-size: 1.2rem;
 }
 
 .form-control textarea {
@@ -33,8 +33,8 @@ form {
     width: 100%;
     min-height: 150px;
     height: auto;
-    
     padding: 5px 10px;
+    font-size: 1.2rem;
 }
 
 .input-error {

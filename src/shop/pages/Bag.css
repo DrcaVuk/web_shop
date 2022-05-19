@@ -28,3 +28,31 @@
     margin-left: auto;
     margin-right: 0;
 }
+
+.bag-empty p {
+  color: var(--font-color);
+  font-size: 1.3rem;
+}
+
+.bag-empty a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding-top: 30px;
+    position: relative;
+}
+
+.bag-empty a span {
+    position: absolute;
+    width: 0;
+    margin: auto;
+    right: 0;
+    bottom: -10px;
+    border-bottom: 3px solid var(--secondary-color);
+    transition: ease-out 0.3s;
+}
+
+.bag-empty a:hover span {
+    width: 100%;
+}

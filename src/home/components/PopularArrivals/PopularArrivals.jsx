@@ -14,7 +14,7 @@ const PopularArrivals = () => {
   useEffect(() => {
     const fatchItems = async () => {
       let resData; 
-      resData = await sendRequest("/product/4/1", "GET")
+      resData = await sendRequest("/product/4/1/all", "GET")
       setItems(resData.data.products.docs);
     }
     fatchItems();
@@ -25,7 +25,7 @@ const PopularArrivals = () => {
         <Title className={classed.title}>Popular Arrivals</Title>
         <div className="row">
           {isLoading && <LoadingSpinner />}
-          {!isLoading && items.map((item, index) => (
+          {!isLoading && items.length > 0 && items.map((item, index) => (
             <ProductItem key={index} id={item._id} name={item.name} price={item.price} image={item.image}/>
           ))}
         </div>

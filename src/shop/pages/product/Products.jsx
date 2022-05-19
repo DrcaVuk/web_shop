@@ -10,20 +10,20 @@ const Product = () => {
     const [ page, setPage ] = useState(1);
     const [ limit, setLimit ] = useState(10);
     const { isLoading, error, sendRequest, clearError } = useHttpClient();
-    let { item } = useParams();
+    let { category } = useParams();
 
     useEffect(() => {
         const fatchItem = async () => {
             let itemData; 
             try {
-            itemData = await sendRequest(`/product/${limit}/${page}`, "GET", {filter: item});
+            itemData = await sendRequest(`/product/${limit}/${page}/${category}`, "GET");
             setItem(itemData.data.products.docs);
         } catch (err) {
             console.log(err);
         }
         }
         fatchItem();
-    }, [])
+    }, [category, limit, page, sendRequest])
     return(
         <div className="container-fluid">
             <div className="container">

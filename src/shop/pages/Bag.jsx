@@ -1,4 +1,5 @@
 import React, { useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import { AuthContext } from "../../shared/context/auth-context";
 import Title from "../../shared/components/UI/Title/Title";
 import BagItem from "../components/BagItem";
@@ -14,7 +15,7 @@ const Bag = () => {
     if (auth.isLoggedIn) {
       auth.getItems();
     } else {
-        return navigate("/login");
+      return navigate("/login");
     }
   }, []);
 
@@ -24,16 +25,22 @@ const Bag = () => {
         <div className="row">
           <div className="col-50">
             <Title>Bag</Title>
-            {auth.inBag === 0 && false && <p>There are not items in your bag.</p>}
-            {auth.inBag > 0 && auth.bag.map((item, index) => (
-              <BagItem
-                key={index}
-                item_id={item._id}
-                name={item.name}
-                price={item.price}
-                quantity={item.quantity}
-              />
-            ))}
+            {auth.inBag === 0 && (
+              <div className="bag-empty">
+                <p>Your bag is empty.</p>
+                <Link to="/shop/all">Keep shopping<span></span></Link>
+              </div>
+            )}
+            {auth.inBag > 0 &&
+              auth.bag.map((item, index) => (
+                <BagItem
+                  key={index}
+                  item_id={item._id}
+                  name={item.name}
+                  price={item.price}
+                  quantity={item.quantity}
+                />
+              ))}
           </div>
           <div className="col-50">
             <Title>Summary</Title>

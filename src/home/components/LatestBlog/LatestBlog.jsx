@@ -19,7 +19,6 @@ const LatestBlog = (props) => {
       try {
         responseData = await sendRequest("/blog/6/1", "GET");
         setBlog(responseData.data.blog.docs);
-        console.log(blog)
       } catch (err) {
         console.log(err);
       }
@@ -32,8 +31,8 @@ const LatestBlog = (props) => {
       <Title className={classed.title}>Latest Blog</Title>
       <div>
       <Slide easing="ease">
-      {blog.map((post) => (
-        <div className={classed.each_slide}>
+      {blog.map((post, index) => (
+        <div className={classed.each_slide} key={index}>
           <div className="row">
             <div className="col-50">
               <ImageBox className={classed.imagebox} image={`${URL}/${post.image}`} title={post.title}>

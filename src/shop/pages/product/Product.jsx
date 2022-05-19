@@ -9,6 +9,8 @@ import Title from "../../../shared/components/UI/Title/Title";
 import Description from "../../../shared/components/UI/Description/Description";
 import Button from "../../../shared/components/UI/Button/Button";
 
+import classed from "./Product.module.css";
+
 const Product = (props) => {
   const navigate = useNavigate();
   const auth = useContext(AuthContext);
@@ -34,11 +36,12 @@ const Product = (props) => {
           <div className="col-50">
             <img src={`${URL}/${item.image}`} alt={item.name} />
           </div>
-          <div className="col-50">
+          <div className={`col-50 ${classed.col}`}>
             <Title>{item.name}</Title>
             <Description>{item.description}</Description>
             <p>Price: $ {item.price}</p>
             <Button
+              className={classed.button}
               type="button"
               onClick={() => {
                 if (auth.isLoggedIn) {

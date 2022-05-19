@@ -7,10 +7,6 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import { URL } from "../../constants";
 import date from 'date-and-time';
 
-import img from "../../shared/images/Img03.png"
-
-import classed from "./Post.module.css";
-
 const Post = () => {
   let { pid } = useParams();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -21,7 +17,6 @@ const Post = () => {
       try {
         let data = await sendRequest(`/blog/${pid}`, "GET");
         setPost(data.data.post);
-        console.log(post)
       } catch (err) {
         console.log(err);
       }
@@ -36,9 +31,9 @@ const Post = () => {
         {!isLoading && (
           <div className="row">
             <div className="col-50">
-              {!post.image && <LoadingSpinner/>}
-              {post.image && <img className={classed.img} src={post.image == "undefined" ? img : `${URL}/${post.image}`} alt="Slika" />}
-              {console.log(URL + post.image)}
+              {!post.image && post.image === "undefined" && <LoadingSpinner/>}
+              {post.image && <img src={`${URL}/${post.image}`} alt="Slika" />}
+              {console.log(URL +"/"+ post.image)}
             </div>
             <div className="col-50">
               <Title>{post.title}</Title>
