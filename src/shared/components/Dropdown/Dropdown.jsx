@@ -5,6 +5,7 @@ import { useHttpClient } from "../../hooks/http-hook";
 import { AiOutlineUser } from "react-icons/ai";
 import { URL } from "../../../constants";
 
+import noImage from '../../images/noImg.jpg';
 import "./Dropdown.css";
 
 const Dropdown = (props) => {
@@ -24,13 +25,14 @@ const Dropdown = (props) => {
     };
     featchUser();
   }, []);
+
   return (
     <div className="dropdown">
       <AiOutlineUser />
       <div className="dropdown-box">
         <div className="dropdown-header">
           <div className="avatar">
-            <img src={`${URL}/${user.image}`} alt={user.image} />
+            <img src={user.image ? `${URL}/${user.image}` : noImage} alt={user.image} />
           </div>
           <div className="user">
             <h2>{user.fullName ? user.fullName : ""}</h2>
