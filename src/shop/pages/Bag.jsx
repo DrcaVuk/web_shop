@@ -17,7 +17,7 @@ const Bag = () => {
     } else {
       return navigate("/login");
     }
-  }, []);
+  }, [auth.isLoggedIn]);
 
   return (
     <div className="container-fluid">

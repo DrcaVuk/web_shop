@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/auth-context";
 import { useHttpClient } from "../../hooks/http-hook";
 import { AiOutlineUser } from "react-icons/ai";
-import { URL } from "../../../constants";
 
-import noImage from '../../images/noImg.jpg';
+import Avatar from "../Avatar/Avatar";
+
 import "./Dropdown.css";
 
 const Dropdown = (props) => {
@@ -31,9 +31,7 @@ const Dropdown = (props) => {
       <AiOutlineUser />
       <div className="dropdown-box">
         <div className="dropdown-header">
-          <div className="avatar">
-            <img src={user.image ? `${URL}/${user.image}` : noImage} alt={user.image} />
-          </div>
+          <Avatar image={user.image}/>
           <div className="user">
             <h2>{user.fullName ? user.fullName : ""}</h2>
             <p>{user.email}</p>
@@ -49,7 +47,7 @@ const Dropdown = (props) => {
             </li>
             {auth.role === 1 && (
               <li>
-                <Link to="/newslatter/list">Newslatter</Link>
+                <Link to="/newslatter">Newslatter</Link>
               </li>
             )}
             {auth.role === 1 && (

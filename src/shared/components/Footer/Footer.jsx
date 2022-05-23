@@ -44,7 +44,7 @@ const Footer = (props) => {
           <div className="col-16">
             <NavLink to="/suport">Support</NavLink>
             <NavLink to="/advertisement">Advertisement</NavLink>
-            <NavLink to="/shop">Online Shop</NavLink>
+            <NavLink to="/shop/all">Online Shop</NavLink>
           </div>
           <div className="col-50">
               <p>Sign up for news and events</p>

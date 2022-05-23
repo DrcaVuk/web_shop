@@ -7,6 +7,7 @@ import { useFormik } from "formik";
 
 import Title from "../../shared/components/UI/Title/Title";
 import Button from "../../shared/components/UI/Button/Button";
+import LoadingSpinner from "../../shared/components/UI/LoadingSpinner/LoadingSpinner";
 
 const Login = (props) => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -35,10 +36,14 @@ const Login = (props) => {
         } catch (err) {
           console.log(err);
         }
-        await auth.login(loginData.data.user_id, loginData.data.token, loginData.data.role);
+        await auth.login(
+          loginData.data.user_id,
+          loginData.data.token,
+          loginData.data.role
+        );
         formik.resetForm();
-        navigate(-2);
-      }
+        navigate(-1);
+      };
       fetchLogin();
     },
   });
@@ -46,49 +51,54 @@ const Login = (props) => {
   return (
     <div className="container-fluid">
       <div className="container">
-        <form onSubmit={formik.handleSubmit}>
-          <Title>Login</Title>
-          <div className="form-control">
-            <label htmlFor="email">Email:</label>
-            <input
-              className={
-                formik.errors.email && formik.touched.email ? "input-error" : ""
-              }
-              type="email"
-              name="email"
-              placeholder="Enter your email"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.email}
-            />
-            {formik.errors.email && formik.touched.email && (
-              <p>{formik.errors.email}</p>
-            )}
-          </div>
-          <div className="form-control">
-            <label htmlFor="password">Password:</label>
-            <input
-              className={
-                formik.errors.password && formik.touched.password
-                  ? "input-error"
-                  : ""
-              }
-              type="password"
-              name="password"
-              placeholder="Enter your password"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.password}
-            />
-            {formik.errors.password && formik.touched.password && (
-              <p>{formik.errors.password}</p>
-            )}
-          </div>
-          <div className="form-group">
-            <Button type="submit">Login</Button>
-            <Button to="/join-us">Join Us</Button>
-          </div>
-        </form>
+        {isLoading && <LoadingSpinner />}
+        {!isLoading && (
+          <form onSubmit={formik.handleSubmit}>
+            <Title>Login</Title>
+            <div className="form-control">
+              <label htmlFor="email">Email:</label>
+              <input
+                className={
+                  formik.errors.email && formik.touched.email
+                    ? "input-error"
+                    : ""
+                }
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.email}
+              />
+              {formik.errors.email && formik.touched.email && (
+                <p>{formik.errors.email}</p>
+              )}
+            </div>
+            <div className="form-control">
+              <label htmlFor="password">Password:</label>
+              <input
+                className={
+                  formik.errors.password && formik.touched.password
+                    ? "input-error"
+                    : ""
+                }
+                type="password"
+                name="password"
+                placeholder="Enter your password"
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+                value={formik.values.password}
+              />
+              {formik.errors.password && formik.touched.password && (
+                <p>{formik.errors.password}</p>
+              )}
+            </div>
+            <div className="form-group">
+              <Button type="submit">Login</Button>
+              <Button to="/join-us">Join Us</Button>
+            </div>
+          </form>
+        )}
       </div>
     </div>
   );

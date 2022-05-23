@@ -3,7 +3,7 @@ import { useHttpClient } from "../../shared/hooks/http-hook";
 import Title from "../../shared/components/UI/Title/Title";
 import Button from "../../shared/components/UI/Button/Button";
 import LoadingSpinner from "../../shared/components/UI/LoadingSpinner/LoadingSpinner";
-import MessageRow from "../components/MessageRow";
+import MessageItem from "../components/MessageItem";
 
 const Messages = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
@@ -39,7 +39,7 @@ const Messages = () => {
                   <th></th>
                 </tr>
                 {messages.map((message, index) => (
-                  <MessageRow
+                  <MessageItem
                     key={index}
                     id={message._id}
                     fullName={message.fullName}

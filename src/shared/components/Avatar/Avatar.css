@@ -1,0 +1,15 @@
+.avatar {
+    position: relative;
+}
+
+.avatar .upload {
+    width: 50px;
+    position: absolute;
+    bottom: 0px;
+    right: 30px;
+}
+
+.avatar .upload form label {
+    border: none;
+    cursor: pointer;
+}

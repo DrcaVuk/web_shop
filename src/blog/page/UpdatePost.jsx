@@ -16,8 +16,7 @@ const UpdatePost = () => {
             let responseData;
             try {
              responseData = await sendRequest(`/blog/${pid}`, "GET");
-            setPost(responseData.data.post);
-            console.log(responseData)
+            setPost(responseData.data.existingPost);
             } catch (err) {
                 console.log(err)
             }
@@ -40,7 +39,7 @@ const UpdatePost = () => {
     return(
         <div className="container-fluid">
             <div className="container">
-                {isLoading && post && <LoadingSpinner error={error} onClear={clearError}/>}
+                {isLoading && post && <LoadingSpinner/>}
                 {!isLoading && post && <PostForm handlerPost={handlerUpdate} title={post.title} description={post.description}
                 />}
             </div>

@@ -6,7 +6,8 @@ import Button from "../../shared/components/UI/Button/Button";
 import Title from "../../shared/components/UI/Title/Title";
 import UpdateAddress from "../components/updateAddress";
 import UpdatePhone from "../components/updatePhone";
-import ImportImage from "../components/updateImage";
+import { URL } from "../../constants";
+import noImg from "../../shared/images/noImg.jpg"
 
 import img from "../../shared/images/Img03.png";
 
@@ -26,7 +27,13 @@ const UpdateUser = () => {
   };
 
   const handlerUpdateAddress = async (values) => {
-    await sendRequest("/user/", "PUT", values);
+    let user = userData;
+    user.address = values.address;
+    user.city = values.city;
+    user.zipCode = values.zipCode;
+    setUserData(user);
+    setIsAddress(false);
+    await sendRequest("/user/", "PUT", user);
   }
 
   const handlerPhone = () => {
@@ -37,29 +44,44 @@ const UpdateUser = () => {
   };
 
   const handlerUpdatePhone = async (values) => {
-    await sendRequest("/user/", "PUT", values);
+    let user = userData; 
+    user.phone = values.phone;
+    setUserData(user);
+    setIsPhone(false);
+    await sendRequest("/user/", "PUT", user);
   }
+
+  useEffect(() => {
+    const handlerUser = async () => {
+      let responseData;
+      try {
+        responseData = await sendRequest("/user", "GET");
+        setUserData(responseData.data);
+      } catch(err) {
+        console.log(err);
+      }
+    }
+    handlerUser();
+  }, [])
 
   return (
     <div className="container-fluid">
       <div className="container">
         <Title>User name</Title>
         {isAddress && <UpdateAddress data={userData} cancel={handlerAddress} handlerUpdateAddress={handlerUpdateAddress} />}
-        {isPhone && <UpdatePhone cancel={handlerPhone} handlerUpdatePhone={handlerUpdatePhone}/>}
+        {isPhone && <UpdatePhone cancel={handlerPhone} handlerUpdatePhone={handlerUpdatePhone} phone={userData.phone}/>}
         <div className="row">
           <div className={`col-50 ${classed.imagebox}`}>
-            <img src={img} />
-            <button>
-              <AiOutlineUpload />
-            </button>
+            <img src={userData.image ? `${URL}/${userData.image}`: noImg} />
           </div>
           <div className="col-50">
             <div className={`row ${classed.box}`}>
               <div className="col-50">
-                <p>Address: Cara Dusana bb</p>
-                <p>City: Stanisic</p>
-                <p>Zip: 25284</p>
-                <p>Country: Srbija</p>
+                <p>Full name: {userData.fullName}</p>
+                <p>Address: {userData.address}</p>
+                <p>City: {userData.city}</p>
+                <p>Zip: {userData.zipCode}</p>
+                <p>Country: {userData.contry}</p>
               </div>
               <div className="col-50">
                 <button className={classed.button} onClick={handlerAddress}>
@@ -70,7 +92,7 @@ const UpdateUser = () => {
             <div className={`row ${classed.box}`} onClick={handlerPhone}>
               <div className="col-50">
                 <p>
-                  Phone: <span>+381 64 700 777 0</span>
+                  Phone: <span>{userData.phone}</span>
                 </p>
               </div>
               <div className="col-50">

@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
 import { AuthContext } from "../../shared/context/auth-context";
 import { useHttpClient } from "../../shared/hooks/http-hook";
-import { Link } from "react-router-dom";
 
+import AdminTools from "../../shared/components/AdminTools/AdminTools";
 import PostItem from "../components/PostItem/PostItem";
 import LoadingSpinner from "../../shared/components/UI/LoadingSpinner/LoadingSpinner";
 
@@ -19,6 +19,7 @@ const Blog = () => {
       try {
         responseData = await sendRequest("/blog/10/1", "GET");
         setBlog(responseData.data.blog.docs);
+        console.log(blog)
       } catch (err) {
         console.log(err);
       }
@@ -26,8 +27,9 @@ const Blog = () => {
     fetchBlog();
   }, []);
 
-  const handlerDelete = (pid) => {
-    sendRequest(`blog/${pid}`, "delete");
+  const handlerDelete = async (pid) => {
+    console.log("PIDL: ")
+    let data = await sendRequest(`blog/${pid}`, "DELETE");
     setBlog(blog.filter((p) => { if(p._id !== pid) return p;}))
   }
 
@@ -36,10 +38,8 @@ const Blog = () => {
       <div className="container">
         
         <div className={classed.container}>
-          <div className="row">
-            <div className="col-50"><h1>BLOG</h1></div>
-            {auth.isLoggedIn && auth.role == 1 && <div className="colo-50"><Link to="/blog/new" className="newpost" >New</Link></div>}
-          </div>
+          <AdminTools role={auth.role} title="BLOG" />
+         
         </div>
         {isLoading && <LoadingSpinner error={error} onClear={clearError}/>}
         {!isLoading && <div className="posts">

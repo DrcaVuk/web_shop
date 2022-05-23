@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const MessageRow = props => {
+const MessageItem = props => {
     return(
         <tr className={!props.isRead ? "active" : ""}>
             <td>{props.fullName}</td>
@@ -12,4 +12,4 @@ const MessageRow = props => {
     )
 }
 
-export default MessageRow;
+export default MessageItem;

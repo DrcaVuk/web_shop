@@ -1,10 +1,13 @@
 import React from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
+import { useHttpClient } from "../../shared/hooks/http-hook";
+
 import Title from "../../shared/components/UI/Title/Title";
 import Button from "../../shared/components/UI/Button/Button";
 
 const ChangePassword = () => {
+  const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const formik = useFormik({
     initialValues: {
       oldPassword: "",
@@ -26,9 +29,14 @@ const ChangePassword = () => {
         .oneOf([Yup.ref('newPassword')],'Passwords do not match')
         .required("Required"),
     }),
-    onSubmit: (values) => {
-      console.log(values);
-      formik.resetForm();
+    onSubmit: async (values) => {
+      try {
+        await sendRequest("/user/password", "PUT", values);
+        formik.resetForm();
+      }catch(err) {
+        console.log(err);
+      }
+     
     },
   });
   return (

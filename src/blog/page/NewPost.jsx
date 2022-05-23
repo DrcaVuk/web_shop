@@ -11,12 +11,8 @@ const NewPost = props => {
     const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
     const handlerCreatPost = async(values) => {
-        values.author_id = "22";
-        values.date_time = "Vreme";  
         const formData = new FormData();
         formData.append("image", values.image);
-        formData.append("author_id", values.author_id);
-        formData.append("date_time", values.date_time);
         formData.append("title", values.title);
         formData.append("description", values.description);
         try {

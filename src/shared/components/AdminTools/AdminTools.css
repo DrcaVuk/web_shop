@@ -1,0 +1,13 @@
+.admin-tools {
+    display: flex;
+    flex-direction: row;
+}
+
+.admin-tools  div {
+    display: inline-flex;
+}
+
+.admin-tools div a {
+    margin: 0 1rem;
+}
+

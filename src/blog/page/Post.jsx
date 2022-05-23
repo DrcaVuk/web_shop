@@ -16,7 +16,7 @@ const Post = () => {
     const fetchPost = async () => {
       try {
         let data = await sendRequest(`/blog/${pid}`, "GET");
-        setPost(data.data.post);
+        setPost(data.data.existingPost);
       } catch (err) {
         console.log(err);
       }
@@ -27,6 +27,7 @@ const Post = () => {
   return (
     <div className="container-fluid">
       <div className="container">
+        {error && <p>{error.message}</p>}
         {isLoading && <LoadingSpinner error={error} onClear={clearError}/>}
         {!isLoading && (
           <div className="row">

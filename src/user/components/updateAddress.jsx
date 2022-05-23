@@ -18,7 +18,7 @@ const UpdateAddress = (props) => {
       zipCode: Yup.string().required("Zip code is required"),
     }),
     onSubmit: (values) => {
-      console.log(values);
+      props.handlerUpdateAddress(values);
       formik.resetForm();
     },
   });

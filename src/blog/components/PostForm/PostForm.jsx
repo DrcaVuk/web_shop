@@ -22,7 +22,6 @@ const PostForm = (props) => {
     }),
     onSubmit: (values) => {
       props.handlerPost(values);
-      console.log(values);
       formik.resetForm();
     },
   });

@@ -3,14 +3,12 @@ import { useParams } from "react-router-dom";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 
 import Title from "../../shared/components/UI/Title/Title";
-import MessageForm from "../components/MessageForm";
 
 import "./Message.css";
 
 const Message = () => {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const { message_id } = useParams();
-  const [isForm, setIsForm] = useState(false);
   const [ message, setMessage ] = useState([]);
 
   useEffect(() => {
@@ -34,7 +32,6 @@ const Message = () => {
           <p>Message: {message.message}</p>
           <p>Email: {message.email}</p>
           <p>Full name: {message.fullName}</p> 
-        {!isForm && <MessageForm />}
       </div>
     </div>
   );
