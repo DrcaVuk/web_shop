@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useHttpClient } from "../../../shared/hooks/http-hook";
 
-import ProductItem from "../../../shared/components/ProductItem/ProductItem";
+import ProductItem from "../../../shop/components/ProductItem/ProductItem";
 import Title from "../../../shared/components/UI/Title/Title";
 import LoadingSpinner from "../../../shared/components/UI/LoadingSpinner/LoadingSpinner";
 
-import classed from "./PopularArrivals.css";
+import classed from "./PopularArrivals.module.css";
 
 const PopularArrivals = () => {
   const [items, setItems] = useState([]);
@@ -24,7 +24,6 @@ const PopularArrivals = () => {
     fatchItems();
   }, []);
   return (
-    <div className="container-fluid">
       <div className="container">
         <Title className={classed.title}>Popular Arrivals</Title>
         <div className="row">
@@ -42,7 +41,6 @@ const PopularArrivals = () => {
             ))}
         </div>
       </div>
-    </div>
   );
 };
 

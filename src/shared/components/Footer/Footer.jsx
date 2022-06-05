@@ -27,7 +27,7 @@ const Footer = (props) => {
     }
   })
   return (
-    <footer>
+    <footer className="container-fluid">
       <div className="container box">
         <div className="row">
           <div className="col-16">

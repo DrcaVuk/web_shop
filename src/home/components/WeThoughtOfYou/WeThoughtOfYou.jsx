@@ -6,7 +6,6 @@ import classed from "./WeThoughtOfYou.module.css";
 
 const WeThoughtOfYou = (props) => {
   return (
-    <div className={`container-fluid ${classed.box}`}>
       <div className="container">
         <Title className={classed.title}>We Thought of you</Title>
         <Description className={classed.description}>
@@ -19,7 +18,6 @@ const WeThoughtOfYou = (props) => {
         <p className={classed.sweety}>Nandy Sweety</p>
         <a href="/">Ui Designer</a>
       </div>
-    </div>
   );
 };
 

@@ -1,0 +1,21 @@
+.image {
+    width: 100%;
+}
+
+.image img {
+    width: 100%;
+}
+
+
+@media screen and (min-width: 961px) {
+    .image {
+        padding: 4rem 1rem; 
+    }
+}
+
+
+@media screen and (max-width:960px) {
+    .image { 
+        padding: 2rem 0;
+    }
+}

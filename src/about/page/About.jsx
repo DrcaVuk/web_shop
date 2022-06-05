@@ -10,8 +10,8 @@ import classed from "./About.module.css";
 const About = () => {
   return (
     <div className="container-fluid">
-      <div className="container">
-        <div className={`row ${classed.row}`}>
+      <div className={`container ${classed.about}`}>
+        <div className="row">
           <div className="col-50" >
             <Title>About Us</Title>
             <Description>
@@ -23,8 +23,8 @@ const About = () => {
               NIKE, Inc. includes the Nike, Converse, and Jordan brands.
             </Description>
           </div>
-          <div className={`col-50 ${classed.col}`}>
-              <ImageBox image={Img06} alt="About Nike"/>
+          <div className={`col-50`}>
+              <ImageBox className={classed.image} image={Img06} alt="About Nike"/>
           </div>
         </div>
       </div>

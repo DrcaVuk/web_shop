@@ -1,41 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { FaCloudUploadAlt } from "react-icons/fa";
 
 import Button from "../../../shared/components/UI/Button/Button";
+import UploadFile from "../../../shared/components/UploadFile/UpladFile";
 
 const PostForm = (props) => {
-  const [previewUrl, setPreviewUrl] = useState();
-  const [viewImage, setViewImage] = useState("");
-  const [ images, setImages ] = useState([])
   const formik = useFormik({
     initialValues: {
       title: props.title ? props.title : "",
       description: props.description ? props.description : "",
-      image: null,
     },
     validationSchema: Yup.object({
       title: Yup.string().required("Title is required!"),
       description: Yup.string().required("Description is required!"),
-      image: Yup.mixed().required("Please select image!"),
     }),
     onSubmit: (values) => {
       props.handlerPost(values);
       formik.resetForm();
     },
   });
-
-  useEffect(() => {
-    if (!formik.values.image) return;
-
-    const fileReader = new FileReader();
-    fileReader.onload = () => {
-      setPreviewUrl(fileReader.result);
-    };
-    fileReader.readAsDataURL(formik.values.image);
-
-  }, [formik.values.image]);
 
   return (
     <form onSubmit={formik.handleSubmit} encType="multipart/form-data">
@@ -69,23 +53,12 @@ const PostForm = (props) => {
           </div>
         </div>
         <div className="col-50">
-          <div className="box-image">
-            {previewUrl && <img src={previewUrl}/>}
-          </div>
-          <div className="form-control">
-            <label className="btn-file">
-              <input className="input-error"
-                type="file"
-                id="image"
-                name="image"
-                accept='image/*'
-                onChange={(event) => {
-                  formik.setFieldValue("image", event.currentTarget.files[0]);
-                }}
-              />
-              <FaCloudUploadAlt />
-            </label>
-          </div>
+          <UploadFile
+            imagesSer={props.imagesSer}
+            handlerImageDelite={props.handlerImageDelite}
+            images={props.images}
+            setImages={props.setImages}
+          />
         </div>
       </div>
       <div className="form-control">

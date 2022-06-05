@@ -23,7 +23,7 @@ export const useAuth = () => {
     setUser_id(uid);
     setRole(role);
     const tokenExpirationDate =
-      expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60);
+      expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60 * 24);
     setTokenExpirationDate(tokenExpirationDate);
     localStorage.setItem(
       "userData",

@@ -1,14 +1,14 @@
 form {
     width: 100%;
     height: auto;
-    margin: 10px auto;
+    margin: 0px auto;
 }
 
 .form-control {
     display: flex;
     width: 100%;
     height: auto;
-    padding: 0 1rem 2rem;
+    padding: 0 0rem 2rem;
     flex-direction: column;
     position: relative;
     color: var(--font-color);
@@ -66,9 +66,39 @@ form .box-image {
     flex-direction: row;
     margin: auto;
     width: 100%;
-    min-height: 200px;
+    min-height: 220px;
     min-width: 240px;
     overflow: auto;
+}
+
+form .box-image .image {
+    display: block;
+    max-width: 200px;
+    max-height: 200px;
+    position: relative;
+}
+
+form .box-image .image button {
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    background: none;
+    border: none;
+    color:rgb(253, 72, 72);
+    left: 20px;
+    bottom: 20px;
+    transition: ease-out 0.3s;
+    cursor: pointer;
+}
+
+form .box-image .image button:hover {
+    color:rgb(178, 48, 48);
+}
+
+form .box-image .image button svg {
+    width: 40px;
+    height: 40px;
 }
 
 form .box-image img {
@@ -117,10 +147,9 @@ form ::-webkit-scrollbar-thumb:hover {
     background: rgba(0, 0, 0, 0.3);
 }
 
-@media screen and (max-width: 576px) {
-    
+@media screen and (max-width: 766px) {
     form {
-        padding: 0 1rem
+        padding: 0;
     }
 
     .form-control {

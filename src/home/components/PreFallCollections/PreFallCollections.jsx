@@ -9,7 +9,6 @@ import classed from "./PreFallCollections.module.css";
 
 const PreFallCollections = (props) => {
   return (
-    <div className="container-fluid">
       <div className="container">
         <div className={`row ${classed.row}`}>
           <div className="col-50">
@@ -30,7 +29,6 @@ const PreFallCollections = (props) => {
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

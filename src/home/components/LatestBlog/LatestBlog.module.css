@@ -1,5 +1,13 @@
+.latestBlog {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
 .box {
     display: flex;
+    width: 100%;
 }
 .box .container {
     display: flex;

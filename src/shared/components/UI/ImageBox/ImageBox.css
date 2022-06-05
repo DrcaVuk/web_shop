@@ -3,6 +3,7 @@
     width: 100%;
     max-width: 400px;
     height: auto;
+    margin: auto;
     position: relative;
 }
 
@@ -51,6 +52,12 @@
     position: absolute;
     bottom: 75px;
     right: -105px;
+}
+
+@media screen and (max-width: 766px) {
+    .image-box {
+        max-width: none;
+    }
 }
 
 @media screen and (max-width: 576px) {

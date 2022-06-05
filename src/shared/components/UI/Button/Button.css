@@ -31,9 +31,9 @@
     background-color: var(--button-hover);
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 766px) {
     .button-box {
         max-width: none;
-        margin: 50px auto;
+        margin: 10px auto;
     }
 }

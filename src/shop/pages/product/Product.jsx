@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { useHttpClient } from "../../../shared/hooks/http-hook";
-import { URL } from "../../../constants";
+import { ServerLink } from "../../../constants";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../shared/context/auth-context";
 
@@ -34,7 +34,7 @@ const Product = (props) => {
       <div className="container">
         <div className="row">
           <div className="col-50">
-            <img src={`${URL}/${item.image}`} alt={item.name} />
+            <img src={`${ServerLink}/${item.image[0]}`} alt={item.name} />
           </div>
           <div className={`col-50 ${classed.col}`}>
             <Title>{item.name}</Title>

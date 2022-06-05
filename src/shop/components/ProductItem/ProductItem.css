@@ -1,0 +1,99 @@
+.item {
+    width: 22%;
+    height: auto;
+    margin: 1.5%;
+}
+
+.item a {
+    display: block;
+    text-decoration: none;
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+
+.item a div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    height: 94%;
+    margin: 0 auto;
+    align-items: center;
+    color: #fff;
+    background-color: var(--secondary-color);
+    position:absolute;
+    z-index: 10;
+    top:2.5%;
+    left: 2.5%;
+    opacity: 0;
+    transition: ease-out 0.3s;
+}
+
+.item a div:hover {
+    opacity: 0.9;
+}
+
+.item a img {
+    display: flex;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-width: 100%;
+}
+
+.item a div h5 {
+    border: 3px solid #fff;
+    padding: 10px;
+}
+
+.item .price {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px auto 0;
+}
+
+.item .price h4 {
+    width: 50%;
+    display: block;
+}
+
+.item .price p:nth-child(2) {
+    color: var(--font-color);
+    display: block;
+    width: 50%;
+}
+
+.item .price p:nth-child(3) {
+    display: block;
+    width: 100%;
+    font-size: 2rem;
+    font-weight: 500;
+    padding: 20px 0 0;
+}
+
+@media screen and (max-width: 1260px) {
+    .item {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        width: 47%;
+    }
+}
+
+@media screen and (max-width: 766px) {
+    .item {
+        width: 100%;
+        padding: 1rem 0;
+        margin: 1.5% 0;
+    }
+
+    .item a div {
+        display: none;
+    }
+
+    .item .price {
+        margin: 50px 0 0;
+    }
+}

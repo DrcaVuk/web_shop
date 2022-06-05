@@ -55,6 +55,7 @@ const Dropdown = (props) => {
                 <Link to="/messages">Messages</Link>
               </li>
             )}
+            {auth.role === 1 &&( <li><Link to="/product/new">New Product</Link></li>) }
           </ul>
         </div>
         <div className="dropdown-footer">

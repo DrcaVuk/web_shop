@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 import Button from "../../../shared/components/UI/Button/Button";
-import { URL } from "../../../constants";
+import { ServerLink } from "../../../constants";
 import { AuthContext } from "../../../shared/context/auth-context";
 import classed from "./PostItem.module.css";
 import noImg from "../../../shared/images/noImg.jpg"
@@ -12,15 +11,16 @@ const PostItem = (props) => {
   return (
     <div key={props.id} className={`post ${classed.post}`}>
       <div className={classed.image}>
-        {props.image && <img src={`${URL}/${props.image}`} alt={props.names}/>}
+        {props.image && props.image.length > 0 ? <img src={`${ServerLink}/${props.image[0]}`} alt={props.names}/> : <img src={noImg} />}
+        
         {!props.image && <img src={noImg} />}
       </div>
       <h2>{props.title}</h2>
       <p>{props.description}</p>
-      <div>
+      <div className="buttons">
         {auth.role === 1 && <Button type="button" onClick={() => {props.handlerDelete(props.id)}} className={classed.box}>Delete</Button>}
-        {auth.role === 1 && <Link to={`/blog/edit/${props.id}`}>Edit</Link>}
-        <Link to={`/blog/${props.id}`}>Read More</Link>
+        {auth.role === 1 && <Button to={`/blog/edit/${props.id}`}>Edit</Button>}
+        <Button to={`/blog/${props.id}`}>Read More</Button>
       </div>
     </div>
   );

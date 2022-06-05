@@ -1,3 +1,3 @@
-const URL = 'http://localhost:5000'
+const ServerLink = 'http://192.168.1.3:5000'
 
-export { URL }
+export { ServerLink }

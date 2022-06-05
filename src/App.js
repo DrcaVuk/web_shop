@@ -3,35 +3,35 @@ import axios from "axios";
 import { AuthContext } from "./shared/context/auth-context";
 import { useAuth } from "./shared/hooks/auth-hook";
 
-import { URL } from "./constants";
+import { ServerLink } from "./constants";
 
-import Header from "./shared/components/Header/Header";
+import MainHeader from "./shared/components/Navigation/MainHeader";
 import Footer from "./shared/components/Footer/Footer";
 
 import Home from "./home/page/Home";
-import Blog from "./blog/page/Blog";
-import NewPost from "./blog/page/NewPost";
-import UpdatePost from "./blog/page/UpdatePost";
-import Post from "./blog/page/Post";
+import BlogList from "./blog/page/PostList/PostList";
+import NewPost from "./blog/page/NewPost/NewPost";
+import UpdatePost from "./blog/page/UpdatePost/UpdatePost";
+import Post from "./blog/page/Post/Post";
 import About from "./about/page/About";
 import Suport from "./support/page/Suport";
 import ContactUs from "./contact-us/page/ContactUs";
 
-import Products from "./shop/pages/product/Products";
-import Product from "./shop/pages/product/Product";
-import NewProduct from "./shop/pages/NewProduct";
-import UpdateProduct from "./shop/pages/UpdateProduct";
+import Products from "./shop/pages/Products/Products";
+import Product from "./shop/pages/Product/Product";
+import NewProduct from "./shop/pages/NewProduct/NewProduct";
+import UpdateProduct from "./shop/pages/UpdateProduct/UpdateProduct";
 
-import Login from "./user/pages/Login";
-import JoinUs from "./user/pages/JoinUs";
-import ChangePassword from "./user/pages/changePassword";
-import User from "./user/pages/User";
+import Login from "./user/pages/Login/Login";
+import JoinUs from "./user/pages/JoinUs/JoinUs";
+import ChangePassword from "./user/pages/ChangePassword/ChangePassword";
+import User from "./user/pages/User/User";
 
-import Message from "./user/pages/Message";
-import Messages from "./user/pages/Messages";
-import NewslatterList from "./user/pages/NewslatterList";
-import Newslatter from "./user/pages/Newslatter";
-import Bag from "./shop/pages/Bag";
+import Message from "./user/pages/Message/Message";
+import Messages from "./user/pages/Messages/Messages";
+import NewslatterList from "./user/pages/NewslatterList/NewslatterList";
+import Newslatter from "./user/pages/Newslatter/Newslatter";
+import Bag from "./shop/pages/Bag/Bag";
 
 import "./App.css";
 
@@ -40,8 +40,8 @@ function App() {
     bag,
     inBag,
     token,
-    total,
     subtotal,
+    total,
     getItems,
     updateItem,
     addItem,
@@ -53,8 +53,10 @@ function App() {
     role,
   } = useAuth();
 
-  axios.defaults.baseURL = URL + "/api";
-  axios.defaults.headers = { Authorization: "Bearer " + token };
+  axios.defaults.baseURL = ServerLink + "/api";
+  axios.defaults.headers = { Authorization: "Bearer " + token,};
+  axios.defaults.headers.addItem = {"Content-Type": "multipart/form-data"};
+
 
   return (
     <AuthContext.Provider
@@ -76,13 +78,13 @@ function App() {
       }}
     >
       <BrowserRouter>
-        <Header />
+        <MainHeader />
         <Routes>
           <Route path="/" element={<Home />} />
-
-          <Route path="/blog" element={<Blog />} />
+          
+          <Route path="/blog" element={<BlogList />} />
+          <Route path="/blog/:pid" element={<Post />} />
           {isLoggedIn && <Route path="/blog/new" element={<NewPost />} />}
-          {isLoggedIn && <Route path="/blog/:pid" element={<Post />} />}
           {isLoggedIn && (
             <Route path="/blog/edit/:pid" element={<UpdatePost />} />
           )}

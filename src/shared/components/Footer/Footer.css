@@ -107,7 +107,7 @@ footer button {
     top: 0px;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 960px) {
    footer a {
         text-align: center;
         margin: auto;

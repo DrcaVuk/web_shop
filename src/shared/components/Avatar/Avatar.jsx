@@ -3,7 +3,7 @@ import { useHttpClient } from "../../hooks/http-hook";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { AiOutlineUpload } from "react-icons/ai";
-import { URL } from "../../../constants";
+import { ServerLink } from "../../../constants";
 import noImage from "../../images/noImg.jpg";
 
 import "./Avatar.css";
@@ -22,7 +22,7 @@ const Avatar = (props) => {
 
   useEffect(() => {
     if (props.image) {
-      setPreviewUrl(`${URL}/${props.image}`);
+      setPreviewUrl(`${ServerLink}/${props.image}`);
     }
     if (formik.values.image) {
       const handlerImage = async () => {
