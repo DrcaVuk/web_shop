@@ -12,25 +12,28 @@ export const useHttpClient = () => {
     const httpAbortCtrl = new AbortController();
     activeHttpRequests.current.push(httpAbortCtrl);
 
-    try {
-      const response = await axios({
-        method,
-        url,
-        data,
-        signal: httpAbortCtrl.signal
+    //try {
+    let response;
+    await axios({
+      method,
+      url,
+      data,
+      signal: httpAbortCtrl.signal,
+    }).then( (res) => {
+      response = res
+    })       
+      .catch((err) => {
+        setIsLoading(false);
+        setError(err.response.data.message)
+        throw err;
       });
 
-      activeHttpRequests.current = activeHttpRequests.current.filter(
-        (reqCtrl) => reqCtrl !== httpAbortCtrl
-      );
+    activeHttpRequests.current = activeHttpRequests.current.filter(
+      (reqCtrl) => reqCtrl !== httpAbortCtrl
+    );
 
-      setIsLoading(false);
-      return response;
-    } catch (err) {
-      setError(err.message);
-      setIsLoading(false);
-      throw err;
-    }
+    setIsLoading(false);
+    return response;
   }, []);
 
   const clearError = () => {

@@ -2,6 +2,7 @@ import React from "react";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 
+import Modal from "../../shared/components/Modal/Modal";
 import Button from "../../shared/components/UI/Button/Button";
 import Title from "../../shared/components/UI/Title/Title";
 
@@ -23,7 +24,7 @@ const UpdateAddress = (props) => {
     },
   });
   return (
-    <div className="modal">
+    <Modal>
       <Title>Update address</Title>
       <form onSubmit={formik.handleSubmit}>
         <div className="form-control">
@@ -85,7 +86,7 @@ const UpdateAddress = (props) => {
           </Button>
         </div>
       </form>
-    </div>
+    </Modal>
   );
 };
 

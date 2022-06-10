@@ -1,11 +1,21 @@
-import React from "react";
+import React, {useEffect} from "react";
+import { useLocation } from "react-router-dom";
 
 import MainNavigation from "./MainNavigation";
-import Img01 from "../../images/Img01.png";
 
 import "./MainHeader.css";
 
 const MainHeader = (props) => {
+  const { pathname } = useLocation();
+
+useEffect(() => {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'instant',
+  });
+}, [pathname])
+
   return (
     <header>
       <div className="container-fluid">

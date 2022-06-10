@@ -1,14 +1,10 @@
-.box {
-    display: flex;
-    background-color: var(--background-color);
-}
-
-.box div {
+.container {
     display: flex;
     flex-direction: column;
+    padding: 2rem 0;
 }
 
-.title {
+.container h2 {
     text-align: center;
 }
 
@@ -29,7 +25,7 @@
     text-decoration: underline;
 }
 
-.box a {
+.container a {
     text-align: center;
     text-decoration: none;
     color: var(--secondary-color);

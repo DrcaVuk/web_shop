@@ -3,6 +3,8 @@ import { AiOutlineDelete } from "react-icons/ai";
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { ServerLink } from "../../../constants";
 
+import classed from "./UploadFile.module.css"
+
 const UploadFile = (props) => {
   const [viewImage, setViewImage] = useState([]);
 
@@ -29,7 +31,7 @@ const UploadFile = (props) => {
 
     for (let i = 0; i < props.images.length; i++) {
       image.push(
-        <div key={i} className="image">
+        <div key={i} className={classed.image}>
           <button
             type="button"
             onClick={() => {
@@ -64,7 +66,7 @@ const UploadFile = (props) => {
   };
 
   return (
-    <div className="upload-images">
+    <div className={classed.upload}>
       <div className="box-image">{viewImage}</div>
       <div className="form-control">
         <label className="btn-file">

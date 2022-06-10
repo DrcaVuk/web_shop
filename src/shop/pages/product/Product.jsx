@@ -23,6 +23,7 @@ const Product = (props) => {
       try {
         itemData = await sendRequest(`/product/${item_id}`, "GET");
         setItem(itemData.data.product);
+        console.log(item)
       } catch (err) {
         console.log(err);
       }
@@ -34,7 +35,7 @@ const Product = (props) => {
       <div className="container">
         <div className="row">
           <div className="col-50">
-            <img src={`${ServerLink}/${item.image[0]}`} alt={item.name} />
+            <img className={classed.image} src={`${ServerLink}/${item.image}`} alt={item.name} />
           </div>
           <div className={`col-50 ${classed.col}`}>
             <Title>{item.name}</Title>

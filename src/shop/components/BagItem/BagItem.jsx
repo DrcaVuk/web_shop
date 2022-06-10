@@ -1,8 +1,9 @@
-import Reactm, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../../shared/context/auth-context";
 
 import "./BagItem.css";
 const BagItem = (props) => {
+  const [quantity, setQuamtity] = useState(0);
   const auth = useContext(AuthContext);
 
   const handlerRemoveItem = (id) => {
@@ -12,6 +13,10 @@ const BagItem = (props) => {
   const handlerQuantity = (id, val) => {
     auth.updateItem(id, val);
   };
+
+  useEffect(() => {
+    setQuamtity(props.quantity);
+  }, [props.quantity])
 
   return (
     <div className="bag-item">
@@ -25,15 +30,16 @@ const BagItem = (props) => {
         </p>
         <button
           type="button"
-          onClick={() => handlerQuantity(props.item_id, 1)}
-        >
-          +
-        </button>
-        <button
-          type="button"
+          disabled={quantity > 1 ? false:true}
           onClick={() => handlerQuantity(props.item_id, -1)}
         >
           -
+        </button>
+        <button
+          type="button"
+          onClick={() => handlerQuantity(props.item_id, 1)}
+        >
+          +
         </button>
       </div>
 

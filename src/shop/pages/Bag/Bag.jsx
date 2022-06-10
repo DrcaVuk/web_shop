@@ -45,7 +45,7 @@ const Bag = () => {
           <div className="col-50">
             <Title>Summary</Title>
             <p className="subtotal">
-              Subtotal: <span>{auth.subtotal.toFixed(2)} $</span>
+              Subtotal: <span> {auth.subtotal.toFixed(2)} $</span>
             </p>
             <hr />
             <p className="total">

@@ -6,6 +6,7 @@ import * as Yup from "yup";
 
 import Button from "../../../shared/components/UI/Button/Button";
 import Title from "../../../shared/components/UI/Title/Title";
+import ErrorModal from "../../../shared/components/ErrorModal/ErrorModal";
 
 const Newslatter = () => {
   const navigate = useNavigate();
@@ -35,6 +36,7 @@ const Newslatter = () => {
   return (
     <div className="container-fluid">
       <div className="container">
+        {error && <ErrorModal title="Error" message={error} onClick={clearError} />}
         <Title>Create newslatter</Title>
         <form onSubmit={formik.handleSubmit}>
           <div className="form-control">

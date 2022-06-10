@@ -26,12 +26,12 @@ const Message = () => {
   },[])
   return (
     <div className="container-fluid">
-      <div className="container">
+      <div className="container msg_box">
         <Title className="msg_title">Messages</Title>
           <h2>Name: {message.title}</h2>     
-          <p>Message: {message.message}</p>
-          <p>Email: {message.email}</p>
-          <p>Full name: {message.fullName}</p> 
+          <p>Message: <span>{message.message}</span></p>
+          <p>Email: <span>{message.email}</span></p>
+          <p>Full name: <span>{message.fullName}</span></p> 
       </div>
     </div>
   );

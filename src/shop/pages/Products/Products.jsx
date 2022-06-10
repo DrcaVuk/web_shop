@@ -5,6 +5,8 @@ import { useHttpClient } from "../../../shared/hooks/http-hook";
 import ProductItem from "../../components/ProductItem/ProductItem";
 import LoadingSpinner from "../../../shared/components/UI/LoadingSpinner/LoadingSpinner";
 
+import classed from "./Products.module.css";
+
 const Product = () => {
     const [ items, setItem ] = useState([]);
     const [ page, setPage ] = useState(1);
@@ -29,7 +31,7 @@ const Product = () => {
             <div className="container">
                 {isLoading && <LoadingSpinner />}
                 {!isLoading && items.length === 0 && (
-                    <div className="container">
+                    <div className={`container ${classed.container}`}>
                         <p>We currently do not have in stock {category} items. <Link to="/shop/all">Show </Link>all product.</p>
                     </div>
                 )}

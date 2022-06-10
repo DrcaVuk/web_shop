@@ -68,7 +68,7 @@ form .box-image {
     width: 100%;
     min-height: 220px;
     min-width: 240px;
-    overflow: auto;
+    overflow-y: auto;
 }
 
 form .box-image .image {
@@ -170,9 +170,11 @@ form ::-webkit-scrollbar-thumb:hover {
         margin: 30px 0;
         height: auto;
         max-height: none;
+        overflow: hidden;
     }
 
     form .box-image img {
+        width: 100%;
         max-width: 100%;
         max-height: 100%;
     }

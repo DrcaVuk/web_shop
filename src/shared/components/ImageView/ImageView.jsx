@@ -7,7 +7,8 @@ import noImg from "../../images/noImg.jpg";
 import "./ImageView.css";
 
 const ImageView = (props) => {
-  if (props.images.length === 1) {
+  console.log(props.images.length);
+  if (props.images.length > 1) {
     return (
       <div className="image">
         <Slide easing="ease">
@@ -17,7 +18,7 @@ const ImageView = (props) => {
         </Slide>
       </div>
     );
-  } else if (props.images.length > 1) {
+  } else if (props.images.length === 1) {
     return (
       <div className="image">
         <img src={`${ServerLink}/${props.images[0]}`} />

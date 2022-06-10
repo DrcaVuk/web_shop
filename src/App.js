@@ -24,7 +24,7 @@ import UpdateProduct from "./shop/pages/UpdateProduct/UpdateProduct";
 
 import Login from "./user/pages/Login/Login";
 import JoinUs from "./user/pages/JoinUs/JoinUs";
-import ChangePassword from "./user/pages/ChangePassword/ChangePassword";
+import ChangePassword from "./user/pages/ChandePassword/ChangePassword";
 import User from "./user/pages/User/User";
 
 import Message from "./user/pages/Message/Message";
@@ -54,9 +54,9 @@ function App() {
   } = useAuth();
 
   axios.defaults.baseURL = ServerLink + "/api";
-  axios.defaults.headers = { Authorization: "Bearer " + token,};
-  axios.defaults.headers.addItem = {"Content-Type": "multipart/form-data"};
-
+  axios.defaults.headers = { Authorization: "Bearer " + token };
+  axios.defaults.headers.addItem = { "Content-Type": "application/json" };
+  //axios.defaults.headers.addItem = { "Content-Type": "multipart/form-data" };
 
   return (
     <AuthContext.Provider
@@ -81,7 +81,7 @@ function App() {
         <MainHeader />
         <Routes>
           <Route path="/" element={<Home />} />
-          
+
           <Route path="/blog" element={<BlogList />} />
           <Route path="/blog/:pid" element={<Post />} />
           {isLoggedIn && <Route path="/blog/new" element={<NewPost />} />}
@@ -103,14 +103,15 @@ function App() {
           {isLoggedIn && (
             <Route path="/change-password" element={<ChangePassword />} />
           )}
-          {isLoggedIn && <Route path="/user" element={<User />} />}
-
-          <Route path="/messages" element={<Messages />} />
-          <Route path="/message/:message_id" element={<Message />} />
+          {isLoggedIn && <Route path="/user" element={<User />} />} 
+          {isLoggedIn && (
+              <Route path="/messages" element={<Messages />} />
+            ) && <Route path="/message/:message_id" element={<Message />} />}
           <Route path="/bag" element={<Bag />} />
 
-          <Route path="/newslatter/list" element={<NewslatterList/>} />
-          <Route path="/newslatter" element={<Newslatter/>} />
+          <Route path="/newslatter/list" element={<NewslatterList />} />
+          <Route path="/newslatter" element={<Newslatter />} />
+          <Route path="*" element={<Home />} />
         </Routes>
         <Footer />
       </BrowserRouter>

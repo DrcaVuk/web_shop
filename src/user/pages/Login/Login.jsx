@@ -8,6 +8,7 @@ import { useFormik } from "formik";
 import Title from "../../../shared/components/UI/Title/Title";
 import Button from "../../../shared/components/UI/Button/Button";
 import LoadingSpinner from "../../../shared/components/UI/LoadingSpinner/LoadingSpinner";
+import ErrorModal from "../../../shared/components/ErrorModal/ErrorModal";
 
 import classed from "./Login.module.css";
 
@@ -33,18 +34,19 @@ const Login = (props) => {
     onSubmit: (values) => {
       const fetchLogin = async () => {
         let loginData;
-        try {
-          loginData = await sendRequest("/user/login", "POST", values);
-        } catch (err) {
-          console.log(err);
-        }
+        loginData = await sendRequest("/user/login", "POST", values);
+        console.log(loginData)
+        if (!error && loginData) {
+
+          console.log(!error)
         await auth.login(
           loginData.data.user_id,
           loginData.data.token,
           loginData.data.role
         );
-        formik.resetForm();
-        navigate(-1);
+          formik.resetForm();
+          navigate(-1);
+        }
       };
       fetchLogin();
     },
@@ -53,6 +55,7 @@ const Login = (props) => {
   return (
     <div className="container-fluid">
       <div className="container">
+      {error && <ErrorModal title="LOGIN FAILED" message={error} onClick={clearError}/>}
         {isLoading && <LoadingSpinner />}
         {!isLoading && (
           <form className={classed.loginForm} onSubmit={formik.handleSubmit}>

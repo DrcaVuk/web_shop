@@ -1,0 +1,22 @@
+.upload {
+    width: 100%;
+}
+
+.image { 
+    width: 100%;
+    position: relative;
+}
+
+.image button {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    border: none;
+}
+
+.image button svg {
+    color: red;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}

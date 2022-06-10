@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import Button from "../../../shared/components/UI/Button/Button";
 import { ServerLink } from "../../../constants";
 import { AuthContext } from "../../../shared/context/auth-context";
-import classed from "./PostItem.module.css";
 import noImg from "../../../shared/images/noImg.jpg"
+import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
 
+import classed from "./PostItem.module.css";
 
 const PostItem = (props) => {
   const auth = useContext(AuthContext);
@@ -16,11 +18,10 @@ const PostItem = (props) => {
         {!props.image && <img src={noImg} />}
       </div>
       <h2>{props.title}</h2>
-      <p>{props.description}</p>
-      <div className="buttons">
-        {auth.role === 1 && <Button type="button" onClick={() => {props.handlerDelete(props.id)}} className={classed.box}>Delete</Button>}
-        {auth.role === 1 && <Button to={`/blog/edit/${props.id}`}>Edit</Button>}
-        <Button to={`/blog/${props.id}`}>Read More</Button>
+      <div className={classed.buttons}>
+        {auth.role === 1 && <button type="button" onClick={() => {props.handlerDelete(props.id)}} className={classed.box}><AiOutlineDelete /></button>}
+        {auth.role === 1 && <Link to={`/blog/edit/${props.id}`}><AiOutlineEdit /></Link>}
+        <Link to={`/blog/${props.id}`}>Read More</Link>
       </div>
     </div>
   );

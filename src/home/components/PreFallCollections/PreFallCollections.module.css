@@ -1,8 +1,3 @@
-.row {
-    justify-content: center;
-    align-items: center;
-}
-
 .title {
     text-align: left;
     font-family: 'Montserrat', sans-serif;
@@ -14,4 +9,21 @@
 
 .imagebox {
     margin: auto 0 auto auto;
+}
+
+.button {
+    margin-right: 0;
+    margin-left: auto;
+}
+
+@media screen and (max-width:1462px) {
+    .imagebox div { 
+        display: none;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .button {
+        margin: auto;
+    }
 }

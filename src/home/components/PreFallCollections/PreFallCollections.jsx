@@ -20,7 +20,7 @@ const PreFallCollections = (props) => {
               towards a streamlined cloud solution. User generated content in
               real-time will.
             </Description>
-            <Button>View Detalls</Button>
+            <Button to="/" className={classed.button}>View Detalls</Button>
           </div>
           <div className="col-50">
             <ImageBox className={classed.imagebox} image={Img02}>

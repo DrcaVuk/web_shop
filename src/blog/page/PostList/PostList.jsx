@@ -47,7 +47,7 @@ const BlogList = () => {
         </div>
         {isLoading && <LoadingSpinner error={error} onClear={clearError} />}
         {!isLoading && (
-          <div className="posts">
+          <div className={classed.posts}>
             {blog.map((post, index) => (
               <PostItem
                 key={index}

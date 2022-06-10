@@ -5,6 +5,8 @@ import * as Yup from "yup";
 import Button from "../../../shared/components/UI/Button/Button";
 import UploadFile from "../../../shared/components/UploadFile/UpladFile";
 
+import classed from "./PostForm.module.css";
+
 const PostForm = (props) => {
   const formik = useFormik({
     initialValues: {
@@ -24,7 +26,7 @@ const PostForm = (props) => {
   return (
     <form onSubmit={formik.handleSubmit} encType="multipart/form-data">
       <div className="row">
-        <div className="col-50">
+        <div className={`col-50 ${classed.colRight}`}>
           <div className="form-control">
             <label htmlFor="title">Title</label>
             <input
@@ -52,7 +54,7 @@ const PostForm = (props) => {
             )}
           </div>
         </div>
-        <div className="col-50">
+        <div className={`col-50 ${classed.colLeft}`}>
           <UploadFile
             imagesSer={props.imagesSer}
             handlerImageDelite={props.handlerImageDelite}

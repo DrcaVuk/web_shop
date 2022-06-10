@@ -1,0 +1,9 @@
+.container {
+    padding: 4rem 0;
+}
+
+.container a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 500;
+}

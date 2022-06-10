@@ -19,6 +19,7 @@ const Post = () => {
       try {
         let data = await sendRequest(`/blog/${pid}`, "GET");
         setPost(data.data.existingPost);
+        console.log(post)
       } catch (err) {
         console.log(err);
       }
